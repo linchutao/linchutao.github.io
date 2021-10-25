@@ -2,6 +2,7 @@
 title: Vmtouch的使用
 date: 2021-10-25 17:26:56
 categories: Tool
+keywords: Vmtouch
 ---
 **vmtouch**主要作用是做数据的warmup，即对于将要用到的数据，通过**vmtouch**把它们事先读入内存，而不是在需要时再从硬盘上读入，这样可以提高系统效率。注意功能如下：
 

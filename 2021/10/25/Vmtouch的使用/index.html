@@ -20,25 +20,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"linchutao.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="勿在浮沙筑高台">
-<meta property="og:type" content="website">
-<meta property="og:title" content="井底之袜">
-<meta property="og:url" content="https://linchutao.github.io/index.html">
+<meta name="description" content="vmtouch主要作用是做数据的warmup，即对于将要用到的数据，通过vmtouch把它们事先读入内存，而不是在需要时再从硬盘上读入，这样可以提高系统效率。注意功能如下：  查看一个文件（或者目录）哪些部分在内存中；  把文件调入内存；  把文件清除出内存；  把文件锁住在内存中而不被换出到磁盘上；   安装1234git clone https:&#x2F;&#x2F;github.com&#x2F;hoytech&#x2F;vmt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vmtouch的使用">
+<meta property="og:url" content="https://linchutao.github.io/2021/10/25/Vmtouch%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="井底之袜">
-<meta property="og:description" content="勿在浮沙筑高台">
+<meta property="og:description" content="vmtouch主要作用是做数据的warmup，即对于将要用到的数据，通过vmtouch把它们事先读入内存，而不是在需要时再从硬盘上读入，这样可以提高系统效率。注意功能如下：  查看一个文件（或者目录）哪些部分在内存中；  把文件调入内存；  把文件清除出内存；  把文件锁住在内存中而不被换出到磁盘上；   安装1234git clone https:&#x2F;&#x2F;github.com&#x2F;hoytech&#x2F;vmt">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-25T07:52:56.000Z">
+<meta property="article:modified_time" content="2021-10-25T08:20:54.549Z">
 <meta property="article:author" content="ShamGod">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://linchutao.github.io/">
+<link rel="canonical" href="https://linchutao.github.io/2021/10/25/Vmtouch%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://linchutao.github.io/2021/10/25/Vmtouch%E7%9A%84%E4%BD%BF%E7%94%A8/","path":"2021/10/25/Vmtouch的使用/","title":"Vmtouch的使用"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>井底之袜</title>
+<title>Vmtouch的使用 | 井底之袜</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -105,7 +107,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -118,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">3.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,16 +169,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://linchutao.github.io/2021/10/25/Vmtouch%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -188,9 +192,9 @@
       <meta itemprop="name" content="井底之袜">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/10/25/Vmtouch%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Vmtouch的使用</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Vmtouch的使用
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -223,7 +227,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><strong>vmtouch</strong>主要作用是做数据的warmup，即对于将要<strong>用</strong>到的数据，通过<strong>vmtouch</strong>把它们事先读入内存，而不是在需要时再从硬盘上读入，这样可以提高系统效率。注意功能如下：</p>
+        <p><strong>vmtouch</strong>主要作用是做数据的warmup，即对于将要<strong>用</strong>到的数据，通过<strong>vmtouch</strong>把它们事先读入内存，而不是在需要时再从硬盘上读入，这样可以提高系统效率。注意功能如下：</p>
 <ul>
 <li><p>查看一个文件（或者目录）哪些部分在内存中；</p>
 </li>
@@ -249,7 +253,6 @@
 <h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a target="_blank" rel="noopener" href="https://github.com/hoytech/vmtouch">GitHub - hoytech/vmtouch: Portable file system cache diagnostics and control</a></p>
 <p><a target="_blank" rel="noopener" href="https://hoytech.com/vmtouch/">Hoytech</a></p>
 
-      
     </div>
 
     
@@ -257,11 +260,13 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+
+        
+
     </footer>
   </article>
 </div>
+
 
 
 

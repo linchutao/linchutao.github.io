@@ -161,69 +161,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/26/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="ShamGod">
-      <meta itemprop="description" content="勿在浮沙筑高台">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="井底之袜">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/10/26/test/" class="post-title-link" itemprop="url">test</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-10-26 15:05:29" itemprop="dateCreated datePublished" datetime="2021-10-26T15:05:29+08:00">2021-10-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/25/Vmtouch%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,10 +184,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-10-25 17:26:56 / Modified: 18:04:06" itemprop="dateCreated datePublished" datetime="2021-10-25T17:26:56+08:00">2021-10-25</time>
+      <time title="Created: 2021-10-25 17:26:56" itemprop="dateCreated datePublished" datetime="2021-10-25T17:26:56+08:00">2021-10-25</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-10-26 17:02:12" itemprop="dateModified" datetime="2021-10-26T17:02:12+08:00">2021-10-26</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -271,7 +214,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><strong>vmtouch</strong>主要作用是做数据的warmup，即对于将要用到的数据，通过<strong>vmtouch</strong>把它们事先读入内存，而不是在需要时再从硬盘上读入，这样可以提高系统效率。注意功能如下：</p>
+          <p><strong>vmtouch</strong>主要作用是做数据的warmup，即对于将要用到的数据，通过<strong>vmtouch</strong>把它们事先读入内存，而不是在需要时再从硬盘上读入，这样可以提高系统效率。主要功能如下：</p>
 <ul>
 <li><p>查看一个文件（或者目录）哪些部分在内存中；</p>
 </li>
@@ -282,21 +225,14 @@
 <li><p>把文件锁住在内存中而不被换出到磁盘上；</p>
 </li>
 </ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/hoytech/vmtouch</span><br><span class="line">cd vmtouch</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
-
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><ul>
-<li>查看目录有多少文件在缓存中</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@host-192-168-1-57 data]# vmtouch nodes/</span><br><span class="line">           Files: 1097</span><br><span class="line">     Directories: 140</span><br><span class="line">  Resident Pages: 781596/824164  2G/3G  94.8%</span><br><span class="line">         Elapsed: 0.35741 seconds</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查看一个文件有多少数据在缓存中</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@host-192-168-1-57 index]# vmtouch -v _13_Lucene84_0.tim </span><br><span class="line">_13_Lucene84_0.tim</span><br><span class="line">[ O] 1/2</span><br><span class="line"></span><br><span class="line">           Files: 1</span><br><span class="line">     Directories: 0</span><br><span class="line">  Resident Pages: 1/2  4K/8K  50%</span><br><span class="line">         Elapsed: 0.000186 seconds</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a target="_blank" rel="noopener" href="https://github.com/hoytech/vmtouch">GitHub - hoytech/vmtouch: Portable file system cache diagnostics and control</a></p>
-<p><a target="_blank" rel="noopener" href="https://hoytech.com/vmtouch/">Hoytech</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/10/25/Vmtouch%E7%9A%84%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

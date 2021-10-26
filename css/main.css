@@ -2437,6 +2437,13 @@ ul.breadcrumb li:last-child {
 .use-motion .sidebar .animated {
   animation-fill-mode: both;
 }
+body {
+  background: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: 100% 100%;
+}
 .header-inner {
   background: var(--content-bg-color);
   border-radius: initial;
@@ -2684,4 +2691,11 @@ ul.breadcrumb li:last-child {
   .pagination {
     margin-bottom: 10px;
   }
+}
+body {
+  background: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  background-size: cover;
 }

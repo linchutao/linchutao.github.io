@@ -565,7 +565,7 @@ comments:
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
-  active:
+  active: livere
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
@@ -606,7 +606,7 @@ changyan:
 
 # LiveRe comments system
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: # <your_uid>
+livere_uid: MTAyMC81NDU1Ny8zMTAyOA==
 
 # Gitalk
 # For more information: https://gitalk.github.io
@@ -882,3 +882,16 @@ css: css
 js: js
 images: images
 
+#gitment:
+#  enable: true
+#  mint: true
+#  count: true
+#  lazy: false
+#  cleanly: false # Hide 'Powered by ...' on footer, and more
+#  language: # Force language, or auto switch by theme
+#  github_user: linchutao # MUST HAVE, Your Github ID
+#  github_repo:  linchutao.github.io # MUST HAVE, The repo you use to store Gitment comments
+#  client_id: 39b97da8e866ccd5f936 # MUST HAVE, Github client id for the Gitment
+#  client_secret: 07ebb2564cdb632fba08b2a796e7c557b82692b1 # EITHER this or proxy_gateway, Github access secret token for the Gitment
+#  proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
+#  redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled

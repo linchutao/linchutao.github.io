@@ -2679,9 +2679,9 @@ body {
   background: var(--body-bg-color);
 }
 .main-inner {
-  background: rgba(255,255,255,0);
+  background: var(--content-bg-color);
   box-shadow: initial;
-  padding: 0px 40px 40px 40px;
+  padding: 40px;
 }
 @media (max-width: 991px) {
   .main-inner {
